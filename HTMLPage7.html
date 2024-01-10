@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Student BioData form</title>
+</head>
+<body>
+    <h1 class="heading">Student BioData form</h1>
+    <div class="page">
+
+        <form class="form">
+            <div class="display-flex">
+                <label for="fullname">Full Name: </label>
+                <input type="text" name="fullname" id="fullname" required />
+            </div>
+            <div class="display-flex">
+                <label for="email">Email: </label>
+                <input type="email" name="email" id="email" required />
+            </div>
+            <div class="display-flex">
+                <label for="dob">DOB: </label>
+                <input type="date" name="dob" id="dob" required />
+            </div>
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="male" checked>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+
+            <label>Subjects:</label>
+            <table>
+                <tr>
+                    <th>Subject</th>
+                    <th>Selected</th>
+                </tr>
+                <tr class="shift-right">
+                    <td>Math</td>
+                    <td><input type="checkbox" id="math" name="subject" value="math"></td>
+                </tr>
+                <tr class="shift-right">
+                    <td>Science</td>
+                    <td><input type="checkbox" id="science" name="subject" value="science"></td>
+                </tr>
+                <tr class="shift-right">
+                    <td>English</td>
+                    <td><input type="checkbox" id="english" name="subject" value="english"></td>
+                </tr>
+            </table>
+
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
+    <style>
+		.heading{
+            text-align:center;
+            background-color:papayawhip;
+		}
+		.page {
+			display: flex;
+			align-content: center;
+			justify-content: center;
+		}
+
+        html {
+            background-color: whitesmoke;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            width:30%;
+            gap:1rem;
+        }
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-bottom: 20px;
+		}
+
+		th, td {
+			padding: 10px;
+			text-align: left;
+			border-bottom: 1px solid #ddd;
+		}
+
+		th {
+			background-color: #333;
+			color: #fff;
+		}
+
+		form {
+			margin-bottom: 20px;
+		}
+		button {
+			background-color: #4caf50;
+			color: #fff;
+			padding: 10px 15px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		input[type="text"],
+		input[type="number"],
+        input[type="email"],
+        input[type="date"]{
+			width: 100%;
+			padding: 4px;
+			margin-bottom: 16px;
+			box-sizing: border-box;
+		}
+		input {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			box-sizing: border-box;
+		}
+    </style>
+</body>
+</html>
