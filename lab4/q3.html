@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Styling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #card {
+            width: 300px;
+            padding: 20px;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #card img {
+            width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <label for="backgroundColor">Background Color:</label>
+    <select id="backgroundColor">
+        <option value="white">White</option>
+        <option value="lightblue">Light Blue</option>
+        <option value="lightgreen">Light Green</option>
+        <option value="lightpink">Light Pink</option>
+    </select>
+
+    <br>
+
+    <label for="fontType">Font Type:</label>
+    <select id="fontType">
+        <option value="Arial">Arial</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Courier New">Courier New</option>
+    </select>
+
+    <br>
+
+    <label for="fontSize">Font Size:</label>
+    <select id="fontSize">
+        <option value="12px">12px</option>
+        <option value="16px">16px</option>
+        <option value="20px">20px</option>
+        <option value="24px">24px</option>
+    </select>
+
+    <br>
+
+    <label for="borderStyle">Border Style:</label>
+    <input type="radio" name="borderStyle" value="none" checked> None
+    <input type="radio" name="borderStyle" value="double"> Double
+    <input type="radio" name="borderStyle" value="solid"> Solid
+
+    <br>
+
+    <input type="checkbox" id="defaultImage"> Add Default Image
+
+    <br>
+
+    <label for="text">Enter Text:</label>
+    <input type="text" id="text">
+
+    <br>
+
+    <button id="updateButton">Update</button>
+</div>
+
+<div id="card">
+    <!-- Card content will be dynamically updated -->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#updateButton').on('click', function () {
+            var backgroundColor = $('#backgroundColor').val();
+            var fontType = $('#fontType').val();
+            var fontSize = $('#fontSize').val();
+            var borderStyle = $('input[name="borderStyle"]:checked').val();
+            var addDefaultImage = $('#defaultImage').prop('checked');
+            var text = $('#text').val();
+
+            var cardStyle = {
+                'background-color': backgroundColor,
+                'font-family': fontType,
+                'font-size': fontSize,
+                'border-style': borderStyle
+            };
+
+            $('#card').css(cardStyle);
+            $('#card').text(text);
+
+            if (addDefaultImage) {
+                var $image = $('<img src="https://source.unsplash.com/random/200x200?sig=3" />');
+                $('#card').append($image);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

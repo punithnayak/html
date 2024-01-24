@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<label for="brand">Select Brand:</label>
+<select id="brand">
+    <option value="HP">HP</option>
+    <option value="Nokia">Nokia</option>
+    <option value="Samsung">Samsung</option>
+    <option value="Motorola">Motorola</option>
+    <option value="Apple">Apple</option>
+</select>
+
+<br>
+
+<label for="type">Select Type:</label>
+<input type="checkbox" id="mobile" value="Mobile"> Mobile
+<input type="checkbox" id="laptop" value="Laptop"> Laptop
+
+<br>
+
+<label for="quantity">Enter Quantity:</label>
+<input type="text" id="quantity">
+
+<br>
+
+<button id="produceBill">Produce Bill</button>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#produceBill').on('click', function () {
+            var brand = $('#brand').val();
+            var mobileChecked = $('#mobile').prop('checked');
+            var laptopChecked = $('#laptop').prop('checked');
+            var quantity = parseInt($('#quantity').val()) || 0;
+
+            var totalAmount = 0;
+
+            if (mobileChecked) {
+                totalAmount += 500 * quantity; // assuming mobile cost is $500
+            }
+
+            if (laptopChecked) {
+                totalAmount += 1000 * quantity; // assuming laptop cost is $1000
+            }
+
+            alert('Total Amount for ' + brand + ': $' + totalAmount);
+        });
+    });
+</script>
+
+</body>
+</html>
